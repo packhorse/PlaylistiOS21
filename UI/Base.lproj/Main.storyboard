@@ -37,7 +37,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="i53-Wo-fiK" detailTextLabel="rCd-2h-NEq" rowHeight="60" style="IBUITableViewCellStyleValue1" id="FcL-HZ-ftH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="playlistCell" textLabel="i53-Wo-fiK" detailTextLabel="rCd-2h-NEq" rowHeight="60" style="IBUITableViewCellStyleValue1" id="FcL-HZ-ftH" customClass="playlistCell">
                                 <rect key="frame" x="0.0" y="108" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FcL-HZ-ftH" id="Ifx-tf-h6M">
@@ -70,16 +70,25 @@
                             <outlet property="delegate" destination="3mF-5s-mgQ" id="M2x-ne-w9Z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Playlist" id="WY9-RM-Yzn"/>
+                    <navigationItem key="navigationItem" title="Playlist" id="WY9-RM-Yzn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rTC-VZ-3WT">
+                            <connections>
+                                <action selector="addPlaylistButtonTapped:" destination="3mF-5s-mgQ" id="OJ3-Bs-ATl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="playlistTextField" destination="R18-qT-f5d" id="0Up-EE-JD9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6T-fp-0pV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="311.19999999999999" y="137.18140929535232"/>
+            <point key="canvasLocation" x="98" y="135"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Song Table View Controller-->
         <scene sceneID="b2G-1z-co3">
             <objects>
-                <tableViewController id="894-ND-SCi" sceneMemberID="viewController">
+                <tableViewController id="894-ND-SCi" customClass="SongTableViewController" customModule="PlaylistPractice2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JMK-YZ-Ht0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,10 +153,14 @@
                             <outlet property="delegate" destination="894-ND-SCi" id="A9u-dG-irl"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="artistTextLabel" destination="9CK-fG-lnS" id="1pA-qN-iv1"/>
+                        <outlet property="songTextLabel" destination="Qwr-9n-NaW" id="n8M-7U-Gda"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1l-Bx-lBO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="136.28185907046478"/>
+            <point key="canvasLocation" x="871" y="135"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KT7-zK-mdo">
@@ -163,7 +176,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TBk-Ra-TKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-425" y="137"/>
+            <point key="canvasLocation" x="-702" y="136"/>
         </scene>
     </scenes>
 </document>
