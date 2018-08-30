@@ -24,13 +24,17 @@ class PlaylistController {
     
     // Create
     // This creates a brand new playlist - and adds it to our Source of truth
-    func create(title: String) {
+    func createPlaylist(title: String) {
         // line 28 is an instance of playlist
         let playlist = Playlist.init(title: title)
         playlists.append(playlist)
     }
     
     // Read
+    
+    func createSong(song: Song, from playlist: Playlist) {
+        playlist.songs.append(song)
+    }
     
     // Update
     

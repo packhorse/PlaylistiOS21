@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+//Object B
 class Song: Equatable {
     static func == (lhs: Song, rhs: Song) -> Bool {
         if lhs.title != rhs.title { return false}

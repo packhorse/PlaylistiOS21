@@ -15,7 +15,7 @@ class PlaylistTableTableViewController: UITableViewController {
     
     @IBAction func addPlaylistButtonTapped(_ sender: Any) {
         guard let title = playlistTextField.text, title != "" else { return }
-        PlaylistController.shared.create(title: title)
+        PlaylistController.shared.createPlaylist(title: title)
 
         //Hey table view go do your job again  -Re-run your 2 required methods which are number rows in section and selfforrow at.
         tableView.reloadData()
@@ -59,15 +59,17 @@ class PlaylistTableTableViewController: UITableViewController {
             
             let playlist = PlaylistController.shared.playlists[indexPath.row]
             
-            PlaylistController.shared.delete(playlistToDelete: <#T##Playlist#>)
+            PlaylistController.shared.delete(playlistToDelete: playlist)
             
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
+    func createSong(song: Song, fromA playlist: Playlist) {
 
-
+        playlist.songs.append(song)
+    }
 
     
 

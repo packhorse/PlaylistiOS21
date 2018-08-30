@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Object A
 class Playlist: Equatable {
     // now we can compare playlist and have access to helper methods 
     static func == (lhs: Playlist, rhs: Playlist) -> Bool {
