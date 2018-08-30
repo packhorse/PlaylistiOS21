@@ -22,10 +22,16 @@ class SongTableViewController: UITableViewController {
     
     @IBAction func songButtonTapped(_ sender: Any) {
         guard let artistFromTextField = artistTextLabel.text,
-            let songFromTextField = songTextLabel.text, let playlist = playlist else { return }
+            let songFromTextField = songTextLabel.text,
+            let playlist = playlist, artistFromTextField != "",
+            !songFromTextField.isEmpty else { return }
         
         
         SongController.addSong(title: songFromTextField, artist: artistFromTextField, playlist: playlist)
+        
+        tableView.reloadData()
+        artistTextLabel.text = ""
+        songTextLabel.text = ""
     }
     
     
@@ -62,7 +68,7 @@ class SongTableViewController: UITableViewController {
         if editingStyle == .delete {
             
             guard let playlist = playlist else { return }
-                let song = playlist.songs[indexPath.row]
+            let song = playlist.songs[indexPath.row]
             SongController.deleteSong(from: playlist, song: song)
             // hey you, table view go do your job again. re-run your data source.
             tableView.reloadData()
