@@ -15,6 +15,7 @@ class SongController {
         // Line 16 is an instance of song
         let song = Song(title: title, artist: artist)
         PlaylistController.shared.createSong(song: song, from: playlist)
+        PlaylistController.shared.save()
     }
     
     
@@ -22,6 +23,7 @@ class SongController {
         // we want to get a posison of a song ("INDEX")_
         guard let index = playlist.songs.index(of: song) else { return }
         playlist.songs.remove(at: index)
+        PlaylistController.shared.save()
     }
 }
 

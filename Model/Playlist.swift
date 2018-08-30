@@ -9,7 +9,7 @@
 import Foundation
 
 // Object A
-class Playlist: Equatable {
+class Playlist: Equatable, Codable {
     // now we can compare playlist and have access to helper methods 
     static func == (lhs: Playlist, rhs: Playlist) -> Bool {
         if lhs.title != rhs.title { return false }
